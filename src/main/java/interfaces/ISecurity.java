@@ -1,4 +1,7 @@
 package interfaces;
 
-public class ISecurity {
+import themepark.Visitor;
+
+public interface ISecurity {
+    boolean isAllowedTo(Visitor visitor);
 }

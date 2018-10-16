@@ -1,4 +1,10 @@
 package interfaces;
 
-public class ITicketed {
+
+import themepark.Visitor;
+
+public interface ITicketed {
+    double defaultPrice();
+    double priceFor(Visitor visitor);
+
 }
