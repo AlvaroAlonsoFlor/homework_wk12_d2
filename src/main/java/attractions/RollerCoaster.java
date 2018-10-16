@@ -1,9 +1,10 @@
 package attractions;
 
+import interfaces.ISecurity;
 import interfaces.ITicketed;
 import themepark.Visitor;
 
-public class RollerCoaster extends Attraction implements ITicketed {
+public class RollerCoaster extends Attraction implements ITicketed, ISecurity {
 
     public RollerCoaster(String name, int rating) {
         super(name, rating);
@@ -20,5 +21,10 @@ public class RollerCoaster extends Attraction implements ITicketed {
             return defaultPrice() * 2;
         }
         return defaultPrice();
+    }
+
+    @Override
+    public boolean isAllowedTo(Visitor visitor) {
+        return visitor.getAge() > 12 && visitor.getHeight() > 1.45;
     }
 }
