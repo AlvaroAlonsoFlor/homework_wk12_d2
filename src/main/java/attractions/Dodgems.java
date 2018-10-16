@@ -1,4 +1,4 @@
-package atractions;
+package attractions;
 
 public class Dodgems {
 }
