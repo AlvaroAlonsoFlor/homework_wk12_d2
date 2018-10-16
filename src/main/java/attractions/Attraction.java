@@ -3,8 +3,8 @@ package attractions;
 import interfaces.IReviewed;
 
 public abstract class Attraction implements IReviewed {
-    String name;
-    int rating;
+    private String name;
+    private int rating;
 
     public Attraction(String name, int rating) {
         this.name = name;

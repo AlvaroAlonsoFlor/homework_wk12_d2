@@ -1,9 +1,9 @@
 package themepark;
 
 public class Visitor {
-    int age;
-    double height;
-    double money;
+    private int age;
+    private double height;
+    private double money;
 
     public Visitor(int age, double height, double money) {
         this.age = age;

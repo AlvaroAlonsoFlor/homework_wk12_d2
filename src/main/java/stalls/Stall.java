@@ -3,10 +3,10 @@ package stalls;
 import interfaces.IReviewed;
 
 public abstract class Stall implements IReviewed {
-    String name;
-    int rating;
-    String owner;
-    String parkingSpot;
+    private String name;
+    private int rating;
+    private String owner;
+    private String parkingSpot;
 
     public Stall(String name, int rating, String owner, String parkingSpot) {
         this.name = name;
