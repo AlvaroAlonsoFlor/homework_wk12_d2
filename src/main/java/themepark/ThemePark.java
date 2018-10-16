@@ -1,19 +1,52 @@
 package themepark;
 
+import attractions.Attraction;
 import interfaces.IReviewed;
+import interfaces.ITicketed;
+import stalls.Stall;
 
 
 import java.util.ArrayList;
 
 public class ThemePark {
-    private ArrayList<IReviewed> reviewedPlaces;
+    private ArrayList<Attraction> attractions;
+    private ArrayList<Stall> stalls;
+    private ArrayList<IReviewed> places;
+    private ArrayList<ITicketed> placesWithTicket;
 
     public ThemePark() {
-        this.reviewedPlaces = reviewedPlaces;
+        this.places = new ArrayList<>();
+        this.attractions = new ArrayList<>();
+        this.stalls = new ArrayList<>();
+        this.placesWithTicket = new ArrayList<>();
     }
 
     public ArrayList<IReviewed> getAllReviewed() {
-        return reviewedPlaces;
+        return places;
     }
+
+   public void addPlace(IReviewed place) {
+        places.add(place);
+   }
+
+   public void addPlaceWithTicket(ITicketed place) {
+        placesWithTicket.add(place);
+   }
+
+   public ArrayList<ITicketed> getAllAllowedFor(Visitor visitor) {
+        ArrayList<ITicketed> result;
+        result = new ArrayList<>();
+
+       for (ITicketed place : placesWithTicket) {
+           if (visitor.getMoney() >= place.priceFor(visitor)) {
+               result.add(place);
+           }
+       }
+
+       return result;
+   }
+
+
+
 
 }
