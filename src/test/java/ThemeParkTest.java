@@ -1,11 +1,17 @@
 import attractions.RollerCoaster;
+import interfaces.IReviewed;
+import interfaces.ISecurity;
+import interfaces.ITicketed;
 import org.junit.Before;
 import org.junit.Test;
 import stalls.TobaccoStall;
 import themepark.ThemePark;
 import themepark.Visitor;
 
+import java.lang.reflect.Array;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ThemeParkTest {
     ThemePark themePark;
@@ -34,15 +40,17 @@ public class ThemeParkTest {
     }
 
     @Test public void returnsAffordablePlaces() {
-        themePark.addPlaceWithTicket(rollerCoaster);
-        themePark.addPlaceWithTicket(rollerCoaster);
+        themePark.addPlace(rollerCoaster);
+        themePark.addPlace(rollerCoaster);
         assertEquals(2, themePark.getAllAllowedFor(visitor2).size());
     }
 
     @Test public void returnsAffordablePlacesNoMoney() {
-        themePark.addPlaceWithTicket(rollerCoaster);
-        themePark.addPlaceWithTicket(rollerCoaster);
+        themePark.addPlace(rollerCoaster);
+        themePark.addPlace(rollerCoaster);
         assertEquals(0, themePark.getAllAllowedFor(visitor1).size());
+
     }
+
 
 }

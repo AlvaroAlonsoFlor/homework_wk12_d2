@@ -27,10 +27,10 @@ public class ThemePark {
 
    public void addPlace(IReviewed place) {
         places.add(place);
-   }
 
-   public void addPlaceWithTicket(ITicketed place) {
-        placesWithTicket.add(place);
+        if (place instanceof ITicketed) {
+            placesWithTicket.add((ITicketed) place);
+        }
    }
 
    public ArrayList<ITicketed> getAllAllowedFor(Visitor visitor) {
